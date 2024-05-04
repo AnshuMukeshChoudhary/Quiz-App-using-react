@@ -8,23 +8,20 @@ import { QuizContext } from "./Helper/Context";
 function App() {
   const [gameState, setGameState] = useState("menu");
   const [scoreState, setScoreState] = useState(0);
-  const currentYear = new Date().getFullYear();
   return (
     <>
+    <div className="home">
       <h1 class="text-center display-5 fw-bold text-primary py-3">Quiz App</h1>
 
-      <div class="card container bg-info py-5 text-center">
-        <div className="card-body">
+      
         <QuizContext.Provider value={{ gameState, setGameState , scoreState, setScoreState}}>
           {gameState === "menu" && <MainMenu />}
           {gameState === "quiz" && <Quiz />}
           {gameState === "end" && <EndScreen />}
         </QuizContext.Provider>
         </div>
-        <div className="card-footer bg-secondary text-dark">
-      <i className="bi bi-c-circle"></i> {currentYear} - Anshu
-      </div>
-      </div>
+        
+      
       
     </>
   );
